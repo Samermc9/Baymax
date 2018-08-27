@@ -30,11 +30,13 @@ public class EventHandler extends ListenerAdapter {
     }
 
     private EmbedBuilder embedMessage(String title, String description, Color color, String footer) {
+    private EmbedBuilder embedMessage(String title, String description, Color color, String footer, String imageURL) {
         EmbedBuilder embedBuilder = new EmbedBuilder();
         embedBuilder
                 .setTitle(title)
                 .setColor(color)
                 .setFooter(footer, null)
+                .setThumbnail(imageURL)
                 .setDescription(description);
 
         return embedBuilder;
@@ -58,6 +60,7 @@ public class EventHandler extends ListenerAdapter {
         }
 
 
+
         //HELP COMMAND (!help) - GENERAL OUTLINE OF COMMANDS
         if (msg.startsWith(PREFIX + "help")) {
 
@@ -68,13 +71,16 @@ public class EventHandler extends ListenerAdapter {
                         .queue();
 
             } else {
+
                 event
                         .getChannel()
-                        .sendMessage(embedMessage("Help Commands", "List of commands available: ```online, members, info, dice, delete, hug, kill, surrealmemes```", new Color(230, 0, 50), "Use all commands with prefix &").build())
+                        .sendMessage(embedMessage("Help Commands", "List of commands available: ```online, members, info, dice, delete, hug, kill, surrealmemes```", new Color(230, 0, 50), "Use all commands with prefix &", null).build())
                         .queue();
-
-
             }
+
+
+
+            //HUG COMMAND (!hug user) - SENDS A HUG MESSAGE
         } else if (msg.startsWith(PREFIX + "hug")) {
 
             if (args.length < 2) {
@@ -99,27 +105,35 @@ public class EventHandler extends ListenerAdapter {
                         .sendMessage("https://cdn.discordapp.com/attachments/386194586285899781/483310567944355870/image0.gif")
                         .queue();
             }
+
+
+
+            //SLAP COMMAND (!slap user) - SENDS A SLAP GIF AND A MESSAGE
         } else if (msg.startsWith(PREFIX + "slap")) {
             if (args.length < 2) {
                 event
                         .getChannel()
                         .sendMessage("**:x: Invalid usage, too few [args]**")
                         .queue();
+
             } else if (args.length > 2) {
                 event
                         .getChannel()
                         .sendMessage("**:x: Invalid usage, too many [args]**")
                         .queue();
+
             } else {
 
                 ArrayList<String> slapGifsUrl = new ArrayList<>();
 
                 slapGifsUrl.add("https://giphy.com/gifs/slap-kimchi-13dRJkj5wgKq9q");
                 slapGifsUrl.add("http://78.media.tumblr.com/tumblr_m1nsxc3jUu1qdjfd8o1_400.gif ");
+                slapGifsUrl.add("https://www.deviantart.com/paranoxias/art/Golden-Time-Flower-Slap-gif-417991111");
 
                 String slapGif = slapGifsUrl.get(random.nextInt(2));
 
                 String member = event.getMessage().getMentionedMembers().get(0).getAsMention();
+
                 if (slapGif.contains("kimchi")) {
                     event
                             .getChannel()
@@ -146,6 +160,8 @@ public class EventHandler extends ListenerAdapter {
             }
 
 
+
+            //KILL COMMAND (!kill user) - SENDS A RANDOM KILL GIF AND MESSAGE
         } else if (msg.startsWith(PREFIX + "kill")) {
             if (args.length < 2) {
                 event
@@ -167,6 +183,22 @@ public class EventHandler extends ListenerAdapter {
                 event
                         .getChannel()
                         .sendMessage("https://im.ziffdavisinternational.com/ign_br/screenshot/default/tumblr-lvuou1kmwj1qgcvsy_f8xm.gif")
+                        .queue();
+            }
+        }
+
+
+
+        else if (msg.startsWith(PREFIX + "info")) {
+            if (args.length > 2) {
+                event
+                        .getChannel()
+                        .sendMessage("**:x: Invalid usage, too many [args]**")
+                        .queue();
+            } else {
+                event
+                        .getChannel()
+                        .sendMessage(embedMessage("Bot Info", "Total commands : 10\nDate of creation: 24 August 2018\nPrefix used: '&'\nStill under development... baYMax Is ComInG", new Color(230, 0, 50), "Created by @Albus and @Samermc9", "https://imgur.com/a/vDxdW4W").build())
                         .queue();
             }
         }
