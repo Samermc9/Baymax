@@ -111,17 +111,41 @@ public class EventHandler extends ListenerAdapter {
                         .sendMessage("**:x: Invalid usage, too many [args]**")
                         .queue();
             } else {
-                String member = event.getMessage().getMentionedMembers().get(0).getAsMention();
-                event
-                        .getChannel()
-                        .sendMessage(event.getAuthor().getAsMention() + " spiCy kImcHi SlaPs " + member)
-                        .queue();
 
-                event
-                        .getChannel()
-                        .sendMessage("https://giphy.com/gifs/slap-kimchi-13dRJkj5wgKq9q")
-                        .queue();
+                ArrayList<String> slapGifsUrl = new ArrayList<>();
+
+                slapGifsUrl.add("https://giphy.com/gifs/slap-kimchi-13dRJkj5wgKq9q");
+                slapGifsUrl.add("http://78.media.tumblr.com/tumblr_m1nsxc3jUu1qdjfd8o1_400.gif ");
+
+                String slapGif = slapGifsUrl.get(random.nextInt(2));
+
+                String member = event.getMessage().getMentionedMembers().get(0).getAsMention();
+                if (slapGif.contains("kimchi")) {
+                    event
+                            .getChannel()
+                            .sendMessage(event.getAuthor().getAsMention() + " spiCy kImcHi SlaPs " + member)
+                            .queue();
+
+                    event
+                            .getChannel()
+                            .sendMessage(slapGif)
+                            .queue();
+                }
+
+                else {
+                    event
+                            .getChannel()
+                            .sendMessage(event.getAuthor().getAsMention() + " slaps " + member)
+                            .queue();
+
+                    event
+                            .getChannel()
+                            .sendMessage(slapGif)
+                            .queue();
+                }
             }
+
+
         } else if (msg.startsWith(PREFIX + "kill")) {
             if (args.length < 2) {
                 event
