@@ -1,5 +1,6 @@
 package com.samermc9.discordBot;
 
+import com.samermc9.discordBot.assets.GifURL;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.entities.*;
@@ -13,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class EventHandler extends ListenerAdapter {
 
-    private static final String PREFIX = "&";
+    private final String PREFIX = "&";
     private Random random = new Random();
 
 
@@ -59,153 +60,128 @@ public class EventHandler extends ListenerAdapter {
         }
 
 
+        if (msg.startsWith(PREFIX)) {
+            //HELP COMMAND (!help) - GENERAL OUTLINE OF COMMANDS
+            if (msg.startsWith("help")) {
 
-        //HELP COMMAND (!help) - GENERAL OUTLINE OF COMMANDS
-        if (msg.startsWith(PREFIX + "help")) {
-
-            if (args.length > 1) {
-                event
-                        .getChannel()
-                        .sendMessage("**:x: Invalid usage: too many [args]**")
-                        .queue();
-
-            } else {
-
-                event
-                        .getChannel()
-                        .sendMessage(embedMessage("Help Commands", "List of commands available: ```online, members, info, dice, delete, hug, kill, surrealmemes```", new Color(230, 0, 50), "Use all commands with prefix &", null).build())
-                        .queue();
-            }
-
-
-
-            //HUG COMMAND (!hug user) - SENDS A HUG MESSAGE
-        } else if (msg.startsWith(PREFIX + "hug")) {
-
-            if (args.length < 2) {
-                event
-                        .getChannel()
-                        .sendMessage("**:x: Invalid usage, too few [args]**")
-                        .queue();
-            } else if (args.length > 2) {
-                event
-                        .getChannel()
-                        .sendMessage("**:x: Invalid usage, too many [args]**")
-                        .queue();
-            } else {
-                String member = event.getMessage().getMentionedMembers().get(0).getAsMention();
-                event
-                        .getChannel()
-                        .sendMessage(event.getAuthor().getAsMention() + " hugs " + member)
-                        .queue();
-
-                event
-                        .getChannel()
-                        .sendMessage("https://cdn.discordapp.com/attachments/386194586285899781/483310567944355870/image0.gif")
-                        .queue();
-            }
-
-
-
-            //SLAP COMMAND (!slap user) - SENDS A SLAP GIF AND A MESSAGE
-        } else if (msg.startsWith(PREFIX + "slap")) {
-            if (args.length < 2) {
-                event
-                        .getChannel()
-                        .sendMessage("**:x: Invalid usage, too few [args]**")
-                        .queue();
-
-            } else if (args.length > 2) {
-                event
-                        .getChannel()
-                        .sendMessage("**:x: Invalid usage, too many [args]**")
-                        .queue();
-
-            } else {
-
-                List<String> slapGifsUrl = new ArrayList<String>();
-
-                slapGifsUrl.add("https://giphy.com/gifs/slap-kimchi-13dRJkj5wgKq9q");
-                slapGifsUrl.add("http://78.media.tumblr.com/tumblr_m1nsxc3jUu1qdjfd8o1_400.gif ");
-                slapGifsUrl.add("https://www.deviantart.com/paranoxias/art/Golden-Time-Flower-Slap-gif-417991111");
-
-                String slapGif = slapGifsUrl.get(random.nextInt(2));
-
-                String member = event.getMessage().getMentionedMembers().get(0).getAsMention();
-
-                if (slapGif.contains("kimchi")) {
+                if (args.length > 1) {
                     event
                             .getChannel()
-                            .sendMessage(event.getAuthor().getAsMention() + " spiCy kImcHi SlaPs " + member)
+                            .sendMessage("**:x: Invalid usage: too many [args]**")
                             .queue();
 
+                } else {
+
                     event
                             .getChannel()
-                            .sendMessage(slapGif)
+                            .sendMessage(embedMessage("Help Commands",
+                                    "List of commands available: ```online, members, info, dice, delete, hug, kill, surrealmemes```",
+                                    new Color(230, 0, 50), "Use all commands with prefix &", null).build())
                             .queue();
                 }
 
-                else {
+
+                //HUG COMMAND (!hug user) - SENDS A HUG MESSAGE
+            } else if (msg.startsWith("hug")) {
+
+                if (args.length < 2) {
                     event
                             .getChannel()
-                            .sendMessage(event.getAuthor().getAsMention() + " slaps " + member)
+                            .sendMessage("**:x: Invalid usage, too few [args]**")
+                            .queue();
+                } else if (args.length > 2) {
+                    event
+                            .getChannel()
+                            .sendMessage("**:x: Invalid usage, too many [args]**")
+                            .queue();
+                } else {
+                    String member = event.getMessage().getMentionedMembers().get(0).getAsMention();
+                    event
+                            .getChannel()
+                            .sendMessage(event.getAuthor().getAsMention() + " hugs " + member)
                             .queue();
 
                     event
                             .getChannel()
-                            .sendMessage(slapGif)
+                            .sendMessage("https://cdn.discordapp.com/attachments/386194586285899781/483310567944355870/image0.gif")
+                            .queue();
+                }
+
+
+                //SLAP COMMAND (!slap user) - SENDS A SLAP GIF AND A MESSAGE
+            } else if (msg.startsWith("slap")) {
+                if (args.length < 2) {
+                    event
+                            .getChannel()
+                            .sendMessage("**:x: Invalid usage, too few [args]**")
+                            .queue();
+
+                } else if (args.length > 2) {
+                    event
+                            .getChannel()
+                            .sendMessage("**:x: Invalid usage, too many [args]**")
+                            .queue();
+
+                } else {
+
+                    String slapGif = GifURL.getRndmSlap();
+
+                    String member = event.getMessage().getMentionedMembers().get(0).getAsMention();
+                        event
+                                .getChannel()
+                                .sendMessage( event.getAuthor().getAsMention() + (slapGif.equals(GifURL.SLAP1) ? " spiCy kImcHi SlaPs " : " slaps ")
+                                        + member + "\n" + slapGif)
+                                .queue();
+
+
+                }
+
+
+                //KILL COMMAND (!kill user) - SENDS A RANDOM KILL GIF AND MESSAGE
+            } else if (msg.startsWith("kill")) {
+                if (args.length < 2) {
+                    event
+                            .getChannel()
+                            .sendMessage("**:x: Invalid usage, too few [args]**")
+                            .queue();
+                } else if (args.length > 2) {
+                    event
+                            .getChannel()
+                            .sendMessage("**:x: Invalid usage, too many [args]**")
+                            .queue();
+                } else {
+                    String member = event.getMessage().getMentionedMembers().get(0).getAsMention();
+                    event
+                            .getChannel()
+                            .sendMessage(event.getAuthor().getAsMention() + " kills " + member)
+                            .queue();
+
+                    event
+                            .getChannel()
+                            .sendMessage("https://im.ziffdavisinternational.com/ign_br/screenshot/default/tumblr-lvuou1kmwj1qgcvsy_f8xm.gif")
+                            .queue();
+                }
+            } else if (msg.startsWith("info")) {
+                if (args.length > 2) {
+                    event
+                            .getChannel()
+                            .sendMessage("**:x: Invalid usage, too many [args]**")
+                            .queue();
+                } else {
+                    event
+                            .getChannel()
+                            .sendMessage(embedMessage("Bot Info",
+                                    "Total commands : 10\nDate of" +
+                                            " creation: 24 August 2018\nPrefix used: '&'\nStill under development... baYMax Is ComInG",
+                                    new Color(230, 0, 50),
+                                    "Created by @Albus and @Samermc9", "https://imgur.com/a/vDxdW4W").build())
                             .queue();
                 }
             }
-
-
-
-            //KILL COMMAND (!kill user) - SENDS A RANDOM KILL GIF AND MESSAGE
-        } else if (msg.startsWith(PREFIX + "kill")) {
-            if (args.length < 2) {
-                event
-                        .getChannel()
-                        .sendMessage("**:x: Invalid usage, too few [args]**")
-                        .queue();
-            } else if (args.length > 2) {
-                event
-                        .getChannel()
-                        .sendMessage("**:x: Invalid usage, too many [args]**")
-                        .queue();
-            } else {
-                String member = event.getMessage().getMentionedMembers().get(0).getAsMention();
-                event
-                        .getChannel()
-                        .sendMessage(event.getAuthor().getAsMention() + " kills " + member)
-                        .queue();
-
-                event
-                        .getChannel()
-                        .sendMessage("https://im.ziffdavisinternational.com/ign_br/screenshot/default/tumblr-lvuou1kmwj1qgcvsy_f8xm.gif")
-                        .queue();
-            }
-        }
-
-
-
-        else if (msg.startsWith(PREFIX + "info")) {
-            if (args.length > 2) {
-                event
-                        .getChannel()
-                        .sendMessage("**:x: Invalid usage, too many [args]**")
-                        .queue();
-            } else {
-                event
-                        .getChannel()
-                        .sendMessage(embedMessage("Bot Info", "Total commands : 10\nDate of creation: 24 August 2018\nPrefix used: '&'\nStill under development... baYMax Is ComInG", new Color(230, 0, 50), "Created by @Albus and @Samermc9", "https://imgur.com/a/vDxdW4W").build())
-                        .queue();
-            }
-        }
-
 
 
             //MEMBERS COMMAND (!members) - CHECKS TOTAL AMOUNT OF MEMBERS IN GIVEN SERVER.
-            else if (msg.startsWith(PREFIX + "members")) {
+            else if (msg.startsWith("members")) {
 
                 if (args.length > 1) {
                     event
@@ -222,9 +198,8 @@ public class EventHandler extends ListenerAdapter {
             }
 
 
-
             //DELETE COMMAND (!delete [amount]) - DELETES MESSAGES BASED ON AMOUNT INPUT, REQUIRES ADMIN
-            else if (msg.startsWith(PREFIX + "delete")) {
+            else if (msg.startsWith("delete")) {
                 if (args.length < 2) {
                     event
                             .getChannel()
@@ -244,7 +219,7 @@ public class EventHandler extends ListenerAdapter {
 
 
             //ONLINE COMMAND (!online) - CHECKS FOR MEMBERS THAT ARE IN ONLINE STATUS
-            else if (msg.startsWith(PREFIX + "online")) {
+            else if (msg.startsWith("online")) {
 
                 if (args.length > 1) {
                     event
@@ -274,9 +249,7 @@ public class EventHandler extends ListenerAdapter {
                 }
 
 
-
-
-            } else if (msg.startsWith(PREFIX + "kick")) {
+            } else if (msg.startsWith("kick")) {
                 if (args.length < 2) {
                     event
                             .getChannel()
@@ -299,45 +272,44 @@ public class EventHandler extends ListenerAdapter {
 
 
             //DICE COMMAND (!dice) - ROLLS A DICE WITH BOUNDS OF 1 - 6.
-            else if (msg.startsWith(PREFIX + "dice")) {
+            else if (msg.startsWith("dice")) {
 
-            if (args.length > 1) {
-                event
-                        .getChannel()
-                        .sendMessage("**Invalid usage, too many [args]**")
-                        .queue();
-
-            } else {
-
-                int dice = random.nextInt(6);
-                event
-                        .getChannel()
-                        .sendMessage("**Now rolling a dice....**")
-                        .queue();
-
-                if (dice < 4) {
+                if (args.length > 1) {
                     event
                             .getChannel()
-                            .sendMessage("**You rolled a " + dice + " ... Not your lucky day is it, " + event.getAuthor().getAsMention() + "**")
-                            .queueAfter(2, TimeUnit.SECONDS);
-                } else if (dice > 4) {
-                    event
-                            .getChannel()
-                            .sendMessage("**You rolled a " + dice + ", great job :smile:**")
+                            .sendMessage("**Invalid usage, too many [args]**")
                             .queue();
+
+                } else {
+
+                    int dice = random.nextInt(6);
+                    event
+                            .getChannel()
+                            .sendMessage("**Now rolling a dice....**")
+                            .queue();
+
+                    if (dice < 4) {
+                        event
+                                .getChannel()
+                                .sendMessage("**You rolled a " + dice + " ... Not your lucky day is it, " + event.getAuthor().getAsMention() + "**")
+                                .queueAfter(2, TimeUnit.SECONDS);
+                    } else if (dice > 4) {
+                        event
+                                .getChannel()
+                                .sendMessage("**You rolled a " + dice + ", great job :smile:**")
+                                .queue();
+                    }
                 }
-            }
 
 
             } else {
 
-                if (msg.startsWith(PREFIX)) {
                     event
                             .getChannel()
                             .sendMessage("**:x: Invalid command! Not available - contact @Samermc9 for more info**")
                             .queue();
-                }
             }
+        }
         }
     }
 
