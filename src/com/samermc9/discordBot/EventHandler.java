@@ -1,6 +1,5 @@
 package com.samermc9.discordBot;
 
-import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.*;
 import net.dv8tion.jda.core.entities.*;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
