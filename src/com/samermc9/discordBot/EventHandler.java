@@ -1,10 +1,12 @@
 package com.samermc9.discordBot;
 
-import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.OnlineStatus;
+import net.dv8tion.jda.core.*;
 import net.dv8tion.jda.core.entities.*;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import sun.plugin.javascript.navig.Array;
+
 import java.awt.*;
 import java.util.*;
 import java.util.List;
@@ -29,7 +31,6 @@ public class EventHandler extends ListenerAdapter {
                 .queue();
     }
 
-    private EmbedBuilder embedMessage(String title, String description, Color color, String footer) {
     private EmbedBuilder embedMessage(String title, String description, Color color, String footer, String imageURL) {
         EmbedBuilder embedBuilder = new EmbedBuilder();
         embedBuilder
@@ -174,6 +175,15 @@ public class EventHandler extends ListenerAdapter {
                         .sendMessage("**:x: Invalid usage, too many [args]**")
                         .queue();
             } else {
+                ArrayList<String> killGifsUrl = new ArrayList<>();
+
+                killGifsUrl.add("http://gifimage.net/wp-content/uploads/2017/09/anime-kill-gif.gif");
+                killGifsUrl.add("https://im.ziffdavisinternational.com/ign_br/screenshot/default/tumblr-lvuou1kmwj1qgcvsy_f8xm.gif");
+                killGifsUrl.add("https://www.tumblr.com/search/i%27ll%20kill%20you%20gif");
+
+                String killGif = killGifsUrl.get(random.nextInt(2));
+
+
                 String member = event.getMessage().getMentionedMembers().get(0).getAsMention();
                 event
                         .getChannel()
@@ -182,7 +192,7 @@ public class EventHandler extends ListenerAdapter {
 
                 event
                         .getChannel()
-                        .sendMessage("https://im.ziffdavisinternational.com/ign_br/screenshot/default/tumblr-lvuou1kmwj1qgcvsy_f8xm.gif")
+                        .sendMessage(killGif)
                         .queue();
             }
         }
