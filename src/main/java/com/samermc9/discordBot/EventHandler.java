@@ -75,7 +75,7 @@ public class EventHandler extends ListenerAdapter {
                     event
                             .getChannel()
                             .sendMessage(embedMessage("Help Commands",
-                                    "List of commands available:" + "```" + CommandsList.getCommands() + "```",
+                                    "List of commands available : " + "```" + CommandsList.getCommands() + "```",
                                     new Color(230, 0, 50), "Use all commands with prefix &", null).build())
                             .queue();
                 }
