@@ -301,11 +301,14 @@ public class EventHandler extends ListenerAdapter {
 
 
             } else {
-            
+
+                if (msg.startsWith(PREFIX)) {
+
                     event
                             .getChannel()
                             .sendMessage("**:x: Invalid command! Not available - contact @Samermc9 for more info**")
                             .queue();
+                }
             }
         }
     }
