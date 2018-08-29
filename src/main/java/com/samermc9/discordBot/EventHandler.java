@@ -1,5 +1,6 @@
 package com.samermc9.discordBot;
 
+import com.samermc9.discordBot.assets.CommandsList;
 import com.samermc9.discordBot.assets.GifURL;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.OnlineStatus;
@@ -62,7 +63,7 @@ public class EventHandler extends ListenerAdapter {
 
         if (msg.startsWith(PREFIX)) {
             //HELP COMMAND (!help) - GENERAL OUTLINE OF COMMANDS
-            if (msg.startsWith("help")) {
+            if (msg.startsWith(PREFIX + "help")) {
 
                 if (args.length > 1) {
                     event
@@ -75,14 +76,14 @@ public class EventHandler extends ListenerAdapter {
                     event
                             .getChannel()
                             .sendMessage(embedMessage("Help Commands",
-                                    "List of commands available: ```online, members, info, dice, delete, hug, kill, surrealmemes```",
+                                    "List of commands available:" + "```" + CommandsList.getCommands() + "```",
                                     new Color(230, 0, 50), "Use all commands with prefix &", null).build())
                             .queue();
                 }
 
 
                 //HUG COMMAND (!hug user) - SENDS A HUG MESSAGE
-            } else if (msg.startsWith("hug")) {
+            } else if (msg.startsWith(PREFIX + "hug")) {
 
                 if (args.length < 2) {
                     event
@@ -95,6 +96,7 @@ public class EventHandler extends ListenerAdapter {
                             .sendMessage("**:x: Invalid usage, too many [args]**")
                             .queue();
                 } else {
+                    String hugGif = GifURL.getRandomHug();
                     String member = event.getMessage().getMentionedMembers().get(0).getAsMention();
                     event
                             .getChannel()
@@ -103,13 +105,13 @@ public class EventHandler extends ListenerAdapter {
 
                     event
                             .getChannel()
-                            .sendMessage("https://cdn.discordapp.com/attachments/386194586285899781/483310567944355870/image0.gif")
+                            .sendMessage(hugGif)
                             .queue();
                 }
 
 
                 //SLAP COMMAND (!slap user) - SENDS A SLAP GIF AND A MESSAGE
-            } else if (msg.startsWith("slap")) {
+            } else if (msg.startsWith(PREFIX + "slap")) {
                 if (args.length < 2) {
                     event
                             .getChannel()
@@ -124,16 +126,14 @@ public class EventHandler extends ListenerAdapter {
 
                 } else {
 
-                    String slapGif = GifURL.getRndmSlap();
+                    String slapGif = GifURL.getRandomSlap();
 
                     String member = event.getMessage().getMentionedMembers().get(0).getAsMention();
-                        event
-                                .getChannel()
-                                .sendMessage( event.getAuthor().getAsMention() + (slapGif.equals(GifURL.SLAP1) ? " spiCy kImcHi SlaPs " : " slaps ")
-                                        + member + "\n" + slapGif)
-                                .queue();
-
-
+                    event
+                            .getChannel()
+                            .sendMessage(event.getAuthor().getAsMention() + (slapGif.equals(GifURL.SLAP1) ? " spiCy kImcHi SlaPs " : " slaps ")
+                                    + member + "\n" + slapGif)
+                            .queue();
                 }
 
 
@@ -150,6 +150,7 @@ public class EventHandler extends ListenerAdapter {
                             .sendMessage("**:x: Invalid usage, too many [args]**")
                             .queue();
                 } else {
+                    String killGif = GifURL.getRandomKill();
                     String member = event.getMessage().getMentionedMembers().get(0).getAsMention();
                     event
                             .getChannel()
@@ -158,9 +159,10 @@ public class EventHandler extends ListenerAdapter {
 
                     event
                             .getChannel()
-                            .sendMessage("https://im.ziffdavisinternational.com/ign_br/screenshot/default/tumblr-lvuou1kmwj1qgcvsy_f8xm.gif")
+                            .sendMessage(killGif)
                             .queue();
                 }
+
             } else if (msg.startsWith("info")) {
                 if (args.length > 2) {
                     event
@@ -171,7 +173,7 @@ public class EventHandler extends ListenerAdapter {
                     event
                             .getChannel()
                             .sendMessage(embedMessage("Bot Info",
-                                    "Total commands : 10\nDate of" +
+                                    "Total commands :" + CommandsList.getLength() + "\nDate of" +
                                             " creation: 24 August 2018\nPrefix used: '&'\nStill under development... baYMax Is ComInG",
                                     new Color(230, 0, 50),
                                     "Created by @Albus and @Samermc9", "https://imgur.com/a/vDxdW4W").build())
@@ -303,15 +305,15 @@ public class EventHandler extends ListenerAdapter {
 
 
             } else {
-
-                    event
-                            .getChannel()
-                            .sendMessage("**:x: Invalid command! Not available - contact @Samermc9 for more info**")
-                            .queue();
+                event
+                        .getChannel()
+                        .sendMessage("**:x: Invalid command! Not available - contact @Samermc9 for more info**")
+                        .queue();
             }
         }
-        }
     }
+}
+
 
 
 
