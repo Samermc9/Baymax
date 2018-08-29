@@ -30,7 +30,9 @@ public class EventHandler extends ListenerAdapter {
                 .queue();
     }
 
-    public boolean checkArgs(int min, int max, int length){ return length < max && length > min;}
+    public boolean checkArgs(int min, int max, int length) {
+        return length < max && length > min;
+    }
 
     private EmbedBuilder embedMessage(String title, String description, Color color, String footer, String imageURL) {
         EmbedBuilder embedBuilder = new EmbedBuilder();
