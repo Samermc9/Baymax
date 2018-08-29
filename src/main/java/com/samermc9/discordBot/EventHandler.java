@@ -58,7 +58,7 @@ public class EventHandler extends ListenerAdapter {
         if (event.getAuthor().isBot()) {
             return;
         }
-        
+
             //HELP COMMAND (!help) - GENERAL OUTLINE OF COMMANDS
             if (msg.startsWith(PREFIX + "help")) {
 
@@ -301,7 +301,7 @@ public class EventHandler extends ListenerAdapter {
 
 
             } else {
-
+            
                     event
                             .getChannel()
                             .sendMessage("**:x: Invalid command! Not available - contact @Samermc9 for more info**")
