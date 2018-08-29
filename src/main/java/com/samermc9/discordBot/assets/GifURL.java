@@ -16,13 +16,13 @@ public class GifURL {
     public static final String HUG2 = "";
     public static final String HUG3 = "";
 
-    private static ArrayList<String> hugList = new ArrayList<String>(Arrays.asList(HUG1, HUG2, HUG3));
+    private static List<String> hugList = new ArrayList<String>(Arrays.asList(HUG1, HUG2, HUG3));
 
     public static final String KILL1 = "https://im.ziffdavisinternational.com/ign_br/screenshot/default/tumblr-lvuou1kmwj1qgcvsy_f8xm.gif";
     public static final String KILL2 = "http://gifimage.net/wp-content/uploads/2017/09/anime-kill-gif.gif";
     public static final String KILL3 = "https://cdn.discordapp.com/attachments/386194586285899781/483310567944355870/image0.gif";
 
-    private static ArrayList<String> killList = new ArrayList<String>(Arrays.asList(KILL1, KILL2, KILL3));
+    private static List<String> killList = new ArrayList<String>(Arrays.asList(KILL1, KILL2, KILL3));
 
 
     public static String getRandomSlap() {
