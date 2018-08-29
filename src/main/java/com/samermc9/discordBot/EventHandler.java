@@ -58,11 +58,9 @@ public class EventHandler extends ListenerAdapter {
         if (event.getAuthor().isBot()) {
             return;
         }
-
-
-        if (msg.startsWith(PREFIX)) {
+        
             //HELP COMMAND (!help) - GENERAL OUTLINE OF COMMANDS
-            if (msg.startsWith("help")) {
+            if (msg.startsWith(PREFIX + "help")) {
 
                 if (args.length > 1) {
                     event
@@ -82,7 +80,7 @@ public class EventHandler extends ListenerAdapter {
 
 
                 //HUG COMMAND (!hug user) - SENDS A HUG MESSAGE
-            } else if (msg.startsWith("hug")) {
+            } else if (msg.startsWith(PREFIX + "hug")) {
 
                 if (args.length < 2) {
                     event
@@ -109,7 +107,7 @@ public class EventHandler extends ListenerAdapter {
 
 
                 //SLAP COMMAND (!slap user) - SENDS A SLAP GIF AND A MESSAGE
-            } else if (msg.startsWith("slap")) {
+            } else if (msg.startsWith(PREFIX + "slap")) {
                 if (args.length < 2) {
                     event
                             .getChannel()
@@ -138,7 +136,7 @@ public class EventHandler extends ListenerAdapter {
 
 
                 //KILL COMMAND (!kill user) - SENDS A RANDOM KILL GIF AND MESSAGE
-            } else if (msg.startsWith("kill")) {
+            } else if (msg.startsWith(PREFIX + "kill")) {
                 if (args.length < 2) {
                     event
                             .getChannel()
@@ -161,7 +159,7 @@ public class EventHandler extends ListenerAdapter {
                             .sendMessage("https://im.ziffdavisinternational.com/ign_br/screenshot/default/tumblr-lvuou1kmwj1qgcvsy_f8xm.gif")
                             .queue();
                 }
-            } else if (msg.startsWith("info")) {
+            } else if (msg.startsWith(PREFIX + "info")) {
                 if (args.length > 2) {
                     event
                             .getChannel()
@@ -181,7 +179,7 @@ public class EventHandler extends ListenerAdapter {
 
 
             //MEMBERS COMMAND (!members) - CHECKS TOTAL AMOUNT OF MEMBERS IN GIVEN SERVER.
-            else if (msg.startsWith("members")) {
+            else if (msg.startsWith(PREFIX + "members")) {
 
                 if (args.length > 1) {
                     event
@@ -199,7 +197,7 @@ public class EventHandler extends ListenerAdapter {
 
 
             //DELETE COMMAND (!delete [amount]) - DELETES MESSAGES BASED ON AMOUNT INPUT, REQUIRES ADMIN
-            else if (msg.startsWith("delete")) {
+            else if (msg.startsWith(PREFIX + "delete")) {
                 if (args.length < 2) {
                     event
                             .getChannel()
@@ -219,7 +217,7 @@ public class EventHandler extends ListenerAdapter {
 
 
             //ONLINE COMMAND (!online) - CHECKS FOR MEMBERS THAT ARE IN ONLINE STATUS
-            else if (msg.startsWith("online")) {
+            else if (msg.startsWith(PREFIX + "online")) {
 
                 if (args.length > 1) {
                     event
@@ -249,7 +247,7 @@ public class EventHandler extends ListenerAdapter {
                 }
 
 
-            } else if (msg.startsWith("kick")) {
+            } else if (msg.startsWith(PREFIX + "kick")) {
                 if (args.length < 2) {
                     event
                             .getChannel()
@@ -272,7 +270,7 @@ public class EventHandler extends ListenerAdapter {
 
 
             //DICE COMMAND (!dice) - ROLLS A DICE WITH BOUNDS OF 1 - 6.
-            else if (msg.startsWith("dice")) {
+            else if (msg.startsWith(PREFIX + "dice")) {
 
                 if (args.length > 1) {
                     event
@@ -309,7 +307,6 @@ public class EventHandler extends ListenerAdapter {
                             .sendMessage("**:x: Invalid command! Not available - contact @Samermc9 for more info**")
                             .queue();
             }
-        }
         }
     }
 
