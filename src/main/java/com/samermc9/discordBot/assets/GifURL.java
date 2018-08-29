@@ -13,8 +13,8 @@ public class GifURL {
     public static List<String> slapList = new ArrayList<String>(Arrays.asList(SLAP1, SLAP2, SLAP3));
 
     public static final String HUG1 = "https://cdn.discordapp.com/attachments/386194586285899781/483310567944355870/image0.gif";
-    public static final String HUG2 = "";
-    public static final String HUG3 = "";
+    public static final String HUG2 = "https://cdn.discordapp.com/attachments/386194586285899781/483310567944355870/image0.gif";
+    public static final String HUG3 = "https://cdn.discordapp.com/attachments/386194586285899781/483310567944355870/image0.gif";
 
     private static List<String> hugList = new ArrayList<String>(Arrays.asList(HUG1, HUG2, HUG3));
 
