@@ -310,7 +310,7 @@ public class EventHandler extends ListenerAdapter {
                         .getChannel()
                         .sendMessage("**:x: Invalid command! Not available - contact @Samermc9 for more info**")
                         .queue();
-                } 
+                }
             }
     }
 }
