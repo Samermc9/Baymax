@@ -222,6 +222,24 @@ public class EventHandler extends ListenerAdapter {
         }
 
 
+        else if (msg.startsWith(PREFIX + "robloxmemes")) {
+            if (args.length > 1) {
+                event
+                        .getChannel()
+                        .sendMessage("**:x: Invalid usage, too few [args]**")
+                        .queue();
+            }
+
+            else {
+                String robloxmeme = ImageURL.getRobloxMemes();
+                event
+                        .getChannel()
+                        .sendMessage(robloxmeme)
+                        .queue();
+            }
+        }
+
+
         //DELETE COMMAND (!delete [amount]) - DELETES MESSAGES BASED ON AMOUNT INPUT, REQUIRES ADMIN
         else if (msg.startsWith(PREFIX + "delete")) {
             if (args.length < 2) {
