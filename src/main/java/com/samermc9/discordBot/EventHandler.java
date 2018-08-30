@@ -153,7 +153,7 @@ public class EventHandler extends ListenerAdapter {
                 String member = event.getMessage().getMentionedMembers().get(0).getAsMention();
                 event
                         .getChannel()
-                        .sendMessage(event.getAuthor().getAsMention() + (slapGif.equals(GifURL.SLAP1) ? " spiCy kImcHi SlaPs " : " slaps ")
+                        .sendMessage(event.getAuthor().getAsMention() + (slapGif.equals(GifURL.kimchiSlap) ? " spiCy kImcHi SlaPs " : " slaps ")
                                 + member + "\n" + slapGif)
                         .queue();
             }

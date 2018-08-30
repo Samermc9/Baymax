@@ -5,7 +5,7 @@ import java.util.*;
 
 public class ImageURL {
     private static Random random = new Random();
-    public static List<String> surrealMemes = new ArrayList<String>(Arrays.asList(
+    private static List<String> surrealMemes = new ArrayList<String>(Arrays.asList(
             "https://i.redd.it/h99qvvk8hsk01.jpg",
             "https://i.redd.it/t9xy5qyqkpy01.png",
             "https://78.media.tumblr.com/24741e3b6b2defba6d8a037af69febed/tumblr_oyszyc2g1r1wvuif9o1_1280.jpg",
@@ -30,7 +30,7 @@ public class ImageURL {
 
 
 
-    public static List<String> robloxMemes = new ArrayList<String>(Arrays.asList(
+    private static List<String> robloxMemes = new ArrayList<String>(Arrays.asList(
             "https://i.kym-cdn.com/photos/images/original/001/342/713/3df.png",
             "https://scontent-lhr3-1.cdninstagram.com/vp/f2122a9a9c9627ec49b578f7cc51b9ee/5C02AB34/t51.2885-15/e35/36148834_497894390667924_2744019657265512448_n.jpg?ig_cache_key=MTgyMjE2Nzc3MTk5NjY5MTk4OQ%3D%3D.2",
             "https://i.imgur.com/GUhWI2j.png",
