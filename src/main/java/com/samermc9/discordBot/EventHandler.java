@@ -63,7 +63,7 @@ public class EventHandler extends ListenerAdapter {
 
 
         //HELP COMMAND (!help) - GENERAL OUTLINE OF COMMANDS
-        if (msg.startsWith(PREFIX + "help")) {
+        if (args[0].equalsIgnoreCase(PREFIX + "help")) {
 
             if (args.length > 1) {
                 event
@@ -82,7 +82,7 @@ public class EventHandler extends ListenerAdapter {
             }
 
 
-        } else if (msg.startsWith(PREFIX + "surrealmemes")) {
+        } else if (args[0].equalsIgnoreCase(PREFIX + "surrealmemes")) {
 
             if (args.length > 1) {
                 event
@@ -103,7 +103,7 @@ public class EventHandler extends ListenerAdapter {
 
 
             //HUG COMMAND (!hug user) - SENDS A HUG MESSAGE
-        } else if (msg.startsWith(PREFIX + "hug")) {
+        } else if (args[0].equalsIgnoreCase(PREFIX + "hug")) {
 
             if (args.length < 2) {
                 event
@@ -133,7 +133,7 @@ public class EventHandler extends ListenerAdapter {
 
 
             //SLAP COMMAND (!slap user) - SENDS A SLAP GIF AND A MESSAGE
-        } else if (msg.startsWith(PREFIX + "slap")) {
+        } else if (args[0].equalsIgnoreCase(PREFIX + "slap")) {
             if (args.length < 2) {
                 event
                         .getChannel()
@@ -160,7 +160,7 @@ public class EventHandler extends ListenerAdapter {
 
 
             //KILL COMMAND (!kill user) - SENDS A RANDOM KILL GIF AND MESSAGE
-        } else if (msg.startsWith(PREFIX + "kill")) {
+        } else if (args[0].equalsIgnoreCase(PREFIX + "kill")) {
             if (args.length < 2) {
                 event
                         .getChannel()
@@ -185,7 +185,7 @@ public class EventHandler extends ListenerAdapter {
                         .queue();
             }
 
-        } else if (msg.startsWith(PREFIX + "info")) {
+        } else if (args[0].equalsIgnoreCase(PREFIX + "info")) {
             if (args.length > 2) {
                 event
                         .getChannel()
@@ -205,7 +205,7 @@ public class EventHandler extends ListenerAdapter {
 
 
         //MEMBERS COMMAND (!members) - CHECKS TOTAL AMOUNT OF MEMBERS IN GIVEN SERVER.
-        else if (msg.startsWith(PREFIX + "members")) {
+        else if (args[0].equalsIgnoreCase(PREFIX + "members")) {
 
             if (args.length > 1) {
                 event
@@ -222,7 +222,7 @@ public class EventHandler extends ListenerAdapter {
         }
 
 
-        else if (msg.startsWith(PREFIX + "robloxmemes")) {
+        else if (args[0].equalsIgnoreCase(PREFIX + "robloxmemes")) {
             if (args.length > 1) {
                 event
                         .getChannel()
@@ -241,7 +241,7 @@ public class EventHandler extends ListenerAdapter {
 
 
         //DELETE COMMAND (!delete [amount]) - DELETES MESSAGES BASED ON AMOUNT INPUT, REQUIRES ADMIN
-        else if (msg.startsWith(PREFIX + "delete")) {
+        else if (args[0].equalsIgnoreCase(PREFIX + "delete")) {
             if (args.length < 2) {
                 event
                         .getChannel()
@@ -261,7 +261,7 @@ public class EventHandler extends ListenerAdapter {
 
 
         //ONLINE COMMAND (!online) - CHECKS FOR MEMBERS THAT ARE IN ONLINE STATUS
-        else if (msg.startsWith(PREFIX + "online")) {
+        else if (args[0].equalsIgnoreCase(PREFIX + "online")) {
 
             if (args.length > 1) {
                 event
@@ -291,7 +291,7 @@ public class EventHandler extends ListenerAdapter {
             }
 
 
-        } else if (msg.startsWith(PREFIX + "kick")) {
+        } else if (args[0].equalsIgnoreCase(PREFIX + "kick")) {
             if (args.length < 2) {
                 event
                         .getChannel()
@@ -314,7 +314,7 @@ public class EventHandler extends ListenerAdapter {
 
 
         //DICE COMMAND (!dice) - ROLLS A DICE WITH BOUNDS OF 1 - 6.
-        else if (msg.startsWith(PREFIX + "dice")) {
+        else if (args[0].equalsIgnoreCase(PREFIX + "dice")) {
 
             if (args.length > 1) {
                 event
