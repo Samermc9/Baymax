@@ -184,8 +184,44 @@ public class EventHandler extends ListenerAdapter {
                         .sendMessage(killGif)
                         .queue();
             }
+        }
 
-        } else if (args[0].equalsIgnoreCase(PREFIX + "info")) {
+        else if (args[0].equalsIgnoreCase(PREFIX + "match")) {
+            if (args.length < 3) {
+                event
+                        .getChannel()
+                        .sendMessage("**:x: Invalid usage, too few [args]**")
+                        .queue();
+            } else if (args.length > 3) {
+                event
+                        .getChannel()
+                        .sendMessage("**:x: Invalid usage, too many [args]**")
+                        .queue();
+            } else {
+                String inputUser = event
+                        .getMessage()
+                        .getMentionedMembers()
+                        .get(0)
+                        .getAsMention();
+
+                String mentionedUser = event
+                        .getMessage()
+                        .getMentionedMembers()
+                        .get(1)
+                        .getAsMention();
+
+                int friendshipMeter = random.nextInt(100);
+
+                event
+                        .getChannel()
+                        .sendMessage(inputUser + "** has a " + friendshipMeter + "% match with **" + mentionedUser)
+                        .queue();
+
+
+            }
+        }
+
+        else if (args[0].equalsIgnoreCase(PREFIX + "info")) {
             if (args.length > 2) {
                 event
                         .getChannel()
@@ -195,10 +231,10 @@ public class EventHandler extends ListenerAdapter {
                 event
                         .getChannel()
                         .sendMessage(embedMessage("Bot Info",
-                                "Total commands :" + CommandsList.getLength() + "\nDate of" +
+                                "Total commands : " + CommandsList.getLength() + "\nDate of" +
                                         " creation: 24 August 2018\nPrefix used: '&'\nStill under development... baYMax Is ComInG",
                                 new Color(230, 0, 50),
-                                "Created by @Albus and @Samermc9", "https://imgur.com/a/vDxdW4W").build())
+                                "Created by @Albus and @Samermc9", "").build())
                         .queue();
             }
         }

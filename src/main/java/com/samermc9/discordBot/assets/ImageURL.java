@@ -25,7 +25,7 @@ public class ImageURL {
             "https://i.kym-cdn.com/photos/images/newsfeed/001/247/636/52c.png",
             "https://i.pinimg.com/originals/a1/24/dd/a124dde95693a9d7b7ae6ccae10c18c4.png",
             "https://i.pinimg.com/236x/9c/46/57/9c46570c9df57fef15184a81cd4dfcf0.jpg",
-            "http://dailylolpics.lolpics.com/wp-content/uploads/2017/12/orang.jpg"
+            ""
             ));
 
 
