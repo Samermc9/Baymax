@@ -19,6 +19,10 @@ public class EventHandler extends ListenerAdapter {
     private final String PREFIX = "&";
     private Random random = new Random();
 
+    private boolean argsChecker(int length, int max, int min) {
+        return length > min && max > length;
+    }
+
 
     private void deleteMessages(TextChannel channel, int amountOfMesssages) {
         MessageHistory history = new MessageHistory(channel);

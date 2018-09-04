@@ -10,7 +10,8 @@ public class GifURL {
 
     private static List<String> slapList = new ArrayList<String>(Arrays.asList(kimchiSlap,
             "http://78.media.tumblr.com/tumblr_m1nsxc3jUu1qdjfd8o1_400.gif",
-            "https://www.deviantart.com/paranoxias/art/Golden-Time-Flower-Slap-gif-417991111"
+            "http://gifimage.net/wp-content/uploads/2017/07/anime-slap-gif-12.gif",
+            "https://i.kym-cdn.com/photos/images/original/001/264/655/379.gif"
             ));
 
     private static List<String> hugList = new ArrayList<String>(Arrays.asList(
