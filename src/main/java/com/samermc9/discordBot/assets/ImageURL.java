@@ -17,7 +17,7 @@ public class ImageURL {
             "https://cdn130.picsart.com/266717044028201.jpg?r1024x1024",
             "https://pbs.twimg.com/media/DXgMXPuVQAA-Qv4.jpg:large",
             "https://pics.me.me/is-this-a-surreal-meme-%3Cp%3E-%3Ca-href-https-www-reddit-com-r-surrealmemes-comments-8je8eu-the-inspectors-are-pondering-our-values-%3Esrc%3C-a%3E-%3C-p%3E-33027917.png",
-            "https://i.imgur.com/ai9Ve2d.jpg",
+            "",
             "https://i.redd.it/1xofgfuon3jz.jpg",
             "https://i.pinimg.com/236x/4e/5e/bd/4e5ebdea14e8f5ac582d3acc395aba34.jpg",
             "https://i.pinimg.com/736x/8f/c8/01/8fc8010241f537a242ddb91d35dee1ad.jpg",

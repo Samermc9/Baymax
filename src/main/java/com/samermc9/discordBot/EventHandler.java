@@ -152,14 +152,30 @@ public class EventHandler extends ListenerAdapter {
 
             } else {
 
+
                 String slapGif = GifURL.getRandomSlap();
 
                 String member = event.getMessage().getMentionedMembers().get(0).getAsMention();
-                event
-                        .getChannel()
-                        .sendMessage(event.getAuthor().getAsMention() + (slapGif.equals(GifURL.kimchiSlap) ? " spiCy kImcHi SlaPs " : " slaps ")
-                                + member + "\n" + slapGif)
-                        .queue();
+
+                if (args[1].equalsIgnoreCase(event.getAuthor().getAsMention())) {
+
+                    event
+                            .getChannel()
+                            .sendMessage("**Well, you want to slap yourself I see... go ahead!**")
+                            .queue();
+                    event
+                            .getChannel()
+                            .sendMessage(event.getAuthor().getAsMention() + (slapGif.equals(GifURL.kimchiSlap) ? " spiCy kImcHi SlaPs " : " slaps ")
+                                    + member + "\n" + slapGif)
+                            .queue();
+                } else {
+
+                    event
+                            .getChannel()
+                            .sendMessage(event.getAuthor().getAsMention() + (slapGif.equals(GifURL.kimchiSlap) ? " spiCy kImcHi SlaPs " : " slaps ")
+                                    + member + "\n" + slapGif)
+                            .queue();
+                }
             }
 
 
@@ -176,6 +192,7 @@ public class EventHandler extends ListenerAdapter {
                         .sendMessage("**:x: Invalid usage, too many [args]**")
                         .queue();
             } else {
+
                 String killGif = GifURL.getRandomKill();
                 String member = event.getMessage().getMentionedMembers().get(0).getAsMention();
                 event
@@ -216,12 +233,20 @@ public class EventHandler extends ListenerAdapter {
 
                 int friendshipMeter = random.nextInt(100);
 
-                event
-                        .getChannel()
-                        .sendMessage(inputUser + "** has a " + friendshipMeter + "% match with **" + mentionedUser)
-                        .queue();
+                if (friendshipMeter <= 50) {
 
+                    event
+                            .getChannel()
+                            .sendMessage(inputUser + "** has a " + friendshipMeter + "% match with " + mentionedUser + " .Not the best pair are you?**")
+                            .queue();
+                }
 
+                else {
+                    event
+                            .getChannel()
+                            .sendMessage(inputUser + "** has a " + friendshipMeter + "% match with " + mentionedUser + ". It's a match made in heaven!**")
+                            .queue();
+                }
             }
         }
 
@@ -235,10 +260,10 @@ public class EventHandler extends ListenerAdapter {
                 event
                         .getChannel()
                         .sendMessage(embedMessage("Bot Info",
-                                "Total commands : " + CommandsList.getLength() + "\nDate of" +
-                                        " creation: 24 August 2018\nPrefix used: '&'\nStill under development... baYMax Is ComInG",
+                                "**Total commands : **" + CommandsList.getLength() + "\n**Date of" +
+                                        " creation:** 24 August 2018\n**Prefix used: '&'**\n**Still under development... baYMax Is ComInG**",
                                 new Color(230, 0, 50),
-                                "Created by @Albus and @Samermc9", "").build())
+                                "Created by @Albus and @Samermc9", null).build())
                         .queue();
             }
         }
