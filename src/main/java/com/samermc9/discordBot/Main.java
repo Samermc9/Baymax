@@ -1,5 +1,6 @@
 package com.samermc9.discordBot;
 
+import com.samermc9.discordBot.fun.RockPaperScissors;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
@@ -12,5 +13,6 @@ public class Main {
                 .setAutoReconnect(true)
                 .buildBlocking();
         jda.addEventListener(new EventHandler());
+        jda.addEventListener(new RockPaperScissors());
     }
 }

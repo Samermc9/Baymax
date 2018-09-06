@@ -3,6 +3,7 @@ package com.samermc9.discordBot;
 import com.samermc9.discordBot.assets.CommandsList;
 import com.samermc9.discordBot.assets.GifURL;
 import com.samermc9.discordBot.assets.ImageURL;
+import com.samermc9.discordBot.fun.RockPaperScissors;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.entities.*;
@@ -16,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 public class EventHandler extends ListenerAdapter {
 
-    private final String PREFIX = "&";
+    public static final String PREFIX = "&";
     private Random random = new Random();
 
 

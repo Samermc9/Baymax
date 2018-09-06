@@ -8,18 +8,18 @@ import java.util.List;
 public class GifURL {
     public static final String kimchiSlap = "https://giphy.com/gifs/slap-kimchi-13dRJkj5wgKq9q";
 
-    private static List<String> slapList = new ArrayList<String>(Arrays.asList(kimchiSlap,
+    private static List<String> slapList = new ArrayList<>(Arrays.asList(kimchiSlap,
             "http://78.media.tumblr.com/tumblr_m1nsxc3jUu1qdjfd8o1_400.gif",
             "https://www.deviantart.com/paranoxias/art/Golden-Time-Flower-Slap-gif-417991111"
             ));
 
-    private static List<String> hugList = new ArrayList<String>(Arrays.asList(
+    private static List<String> hugList = new ArrayList<>(Arrays.asList(
             "https://cdn.discordapp.com/attachments/386194586285899781/483310567944355870/image0.gif",
             "https://cdn.discordapp.com/attachments/386194586285899781/483310567944355870/image0.gif",
             "https://cdn.discordapp.com/attachments/386194586285899781/483310567944355870/image0.gif"));
 
 
-    private static List<String> killList = new ArrayList<String>(Arrays.asList(
+    private static List<String> killList = new ArrayList<>(Arrays.asList(
             "https://im.ziffdavisinternational.com/ign_br/screenshot/default/tumblr-lvuou1kmwj1qgcvsy_f8xm.gif",
             "http://gifimage.net/wp-content/uploads/2017/09/anime-kill-gif.gif",
             "https://cdn.discordapp.com/attachments/386194586285899781/483310567944355870/image0.gif"));
