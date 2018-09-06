@@ -40,7 +40,7 @@ public class RockPaperScissors extends ListenerAdapter {
         if(args[0].equalsIgnoreCase(PREFIX + "rps") || args[0].equalsIgnoreCase(PREFIX + "rockpaperscissors")) {
             event
                     .getChannel()
-                    .sendMessage("You have started a rock paper scissors! Please choose an emote")
+                    .sendMessage("**You have started a rock paper scissors game! Please choose an emote to confirm your option!**")
                     .queue(new Consumer<Message>() {
                         @Override
                         public void accept(Message message) {
@@ -64,13 +64,13 @@ public class RockPaperScissors extends ListenerAdapter {
 
                 switch (getRandomAnswer()) {
                     case "\uD83D\uDD90":
-                        sendMessage(event,"You chose " + emote + ".I chose \uD83D\uDD90, You tied!");
+                        sendMessage(event,"**You chose " + emote + ". I chose \uD83D\uDD90, It's a draw!**");
                         break;
                     case "✊":
-                        sendMessage(event, "You chose " + emote + ".I chose ✊,You win!");
+                        sendMessage(event, "**You chose " + emote + ". I chose ✊, You win!**");
                         break;
                     case "✌":
-                        sendMessage(event, "You chose " + emote + ".I chose ✌,You loose!");
+                        sendMessage(event, "You chose " + emote + ". I chose ✌, You lose!**");
                         break;
                 }
 
@@ -78,13 +78,13 @@ public class RockPaperScissors extends ListenerAdapter {
 
                 switch (getRandomAnswer()) {
                     case "\uD83D\uDD90":
-                        sendMessage(event,"You chose " + emote + ".I chose \uD83D\uDD90,You win!");
+                        sendMessage(event,"**You chose " + emote + ". I chose \uD83D\uDD90, You win!**");
                         break;
                     case "✊":
-                        sendMessage(event, "You chose " + emote + ".I chose ✊,You loose!");
+                        sendMessage(event, "**You chose " + emote + ". I chose ✊, You lose!");
                         break;
                     case "✌":
-                        sendMessage(event, "You chose " + emote + ".I chose ✌,You tied!");
+                        sendMessage(event, "**You chose " + emote + ". I chose ✌, You tied!**");
                         break;
                 }
 
@@ -92,13 +92,13 @@ public class RockPaperScissors extends ListenerAdapter {
 
                 switch (getRandomAnswer()) {
                     case "\uD83D\uDD90":
-                        sendMessage(event,"You chose " + emote + ".I chose \uD83D\uDD90,You loose!");
+                        sendMessage(event,"**You chose " + emote + ". I chose \uD83D\uDD90, You lose!**");
                         break;
                     case "✊":
-                        sendMessage(event, "You chose " + emote + ".I chose ✊,You tied!");
+                        sendMessage(event, "**You chose " + emote + ". I chose ✊, You tied!**");
                         break;
                     case "✌":
-                        sendMessage(event, "You chose " + emote + ".I chose ✌,You win!");
+                        sendMessage(event, "**You chose " + emote + ". I chose ✌, You win!**");
                         break;
                 }
             }

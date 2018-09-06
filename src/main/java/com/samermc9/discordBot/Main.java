@@ -1,5 +1,6 @@
 package com.samermc9.discordBot;
 
+import com.samermc9.discordBot.fun.EightBall;
 import com.samermc9.discordBot.fun.RockPaperScissors;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;

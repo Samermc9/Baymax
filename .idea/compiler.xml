@@ -9,11 +9,5 @@
         <module name="Baymax" />
       </profile>
     </annotationProcessing>
-<<<<<<< HEAD
-=======
-    <bytecodeTargetLevel>
-      <module name="Baymax" target="1.8" />
-    </bytecodeTargetLevel>
->>>>>>> 3917b95d26626ab01b2f37f6fe7cce69af7fb415
   </component>
 </project>

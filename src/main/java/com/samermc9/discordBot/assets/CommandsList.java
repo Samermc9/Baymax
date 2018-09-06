@@ -3,7 +3,7 @@ package com.samermc9.discordBot.assets;
 import java.util.Arrays;
 
 public class CommandsList {
-    private static String[] commands = new String[]{"help", "online", "slap", "kill", "hug", "dice", "members", "delete", "info", "surrealmemes", "robloxmemes", "match"};
+    private static String[] commands = new String[]{"help", "online", "slap", "kill", "hug", "dice", "members", "delete", "info", "surrealmemes", "robloxmemes", "match", "rps", "8ball"};
 
     public static int getLength() {
         return commands.length;

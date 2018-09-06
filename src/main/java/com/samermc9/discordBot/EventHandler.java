@@ -3,6 +3,7 @@ package com.samermc9.discordBot;
 import com.samermc9.discordBot.assets.CommandsList;
 import com.samermc9.discordBot.assets.GifURL;
 import com.samermc9.discordBot.assets.ImageURL;
+import com.samermc9.discordBot.fun.EightBall;
 import com.samermc9.discordBot.fun.RockPaperScissors;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.OnlineStatus;
@@ -306,6 +307,8 @@ public class EventHandler extends ListenerAdapter {
         }
 
 
+
+
         //DELETE COMMAND (!delete [amount]) - DELETES MESSAGES BASED ON AMOUNT INPUT, REQUIRES ADMIN
         else if (args[0].equalsIgnoreCase(PREFIX + "delete")) {
             if (args.length < 2) {
@@ -356,6 +359,22 @@ public class EventHandler extends ListenerAdapter {
                         .queue();
             }
 
+        } else if (args[0].equalsIgnoreCase(PREFIX + "8ball")) {
+
+            if (args.length < 2)  {
+                event
+                        .getChannel()
+                        .sendMessage("**:x: Invalid usage, too few [args]**")
+                        .queue();
+            }
+
+            else {
+                String eightBallOutput = EightBall.getRandomOutput();
+                event
+                        .getChannel()
+                        .sendMessage(eightBallOutput)
+                        .queue();
+            }
 
         } else if (args[0].equalsIgnoreCase(PREFIX + "kick")) {
             if (args.length < 2) {
@@ -412,12 +431,13 @@ public class EventHandler extends ListenerAdapter {
 
         } else if (args[0].equalsIgnoreCase(PREFIX + "rps") || args[0].equalsIgnoreCase(PREFIX + "rockpaperscissors")) {
             //ignore
+
         } else {
 
             if (msg.startsWith(PREFIX)) {
                 event
                         .getChannel()
-                        .sendMessage("**:x: Invalid command! Not available - contact @Samermc9 for more info**")
+                        .sendMessage("**:x: Invalid command! Not available - contact @Samermc9 or @Albus for more info**")
                         .queue();
             }
         }
