@@ -8,6 +8,7 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
 
@@ -15,6 +16,14 @@ public class RockPaperScissors extends ListenerAdapter {
 
     private Member member;
     private String msg;
+    private boolean gameOn;
+
+    private String[] emotes = {"\uD83D\uDD90", "✊", "✌"};
+
+    private String getRandomAnswer() {
+        Collections.shuffle(Arrays.asList(emotes));
+        return emotes[0];
+    }
 
     private void sendMessage(GuildMessageReactionAddEvent event, String message) {
         event
@@ -35,10 +44,11 @@ public class RockPaperScissors extends ListenerAdapter {
                     .queue(new Consumer<Message>() {
                         @Override
                         public void accept(Message message) {
-                            message.addReaction("\uD83D\uDD90");
-                            message.addReaction("✊");
-                            message.addReaction("✌");
+                            message.addReaction("\uD83D\uDD90").queueAfter(1, TimeUnit.MILLISECONDS);
+                            message.addReaction("✊").queueAfter(1, TimeUnit.MILLISECONDS);
+                            message.addReaction("✌").queueAfter(1, TimeUnit.MILLISECONDS);
                             msg = message.getId();
+                            gameOn = true;
                         }
                     });
 
@@ -47,53 +57,52 @@ public class RockPaperScissors extends ListenerAdapter {
     }
 
     public void onGuildMessageReactionAdd(GuildMessageReactionAddEvent event) {
-        if (event.getMember().equals(member) && msg.equals(event.getMessageId())) {
-            String[] emotes = {"\uD83D\uDD90", "✊", "✌"};
+        if (event.getMember().equals(member) && msg.equals(event.getMessageId()) && gameOn) {
 
-            Collections.shuffle(Arrays.asList(emotes));
+            String emote = event.getReactionEmote().getName();
+            if (emote.equals("\uD83D\uDD90")) {
 
-            if (event.getReactionEmote().getEmote().equals(event.getGuild().getEmoteById("\uD83D\uDD90"))) {
-
-                switch (emotes[0]) {
+                switch (getRandomAnswer()) {
                     case "\uD83D\uDD90":
-                        sendMessage(event,"You tied!");
+                        sendMessage(event,"You chose " + emote + ".I chose \uD83D\uDD90, You tied!");
                         break;
                     case "✊":
-                        sendMessage(event, "You win!");
+                        sendMessage(event, "You chose " + emote + ".I chose ✊,You win!");
                         break;
                     case "✌":
-                        sendMessage(event, "You loose!");
+                        sendMessage(event, "You chose " + emote + ".I chose ✌,You loose!");
                         break;
                 }
 
-            } else if (event.getReactionEmote().getEmote().equals(event.getGuild().getEmoteById("✌"))) {
+            } else if (emote.equals("✊")) {
 
-                switch (emotes[0]) {
+                switch (getRandomAnswer()) {
                     case "\uD83D\uDD90":
-                        sendMessage(event,"You win!");
+                        sendMessage(event,"You chose " + emote + ".I chose \uD83D\uDD90,You win!");
                         break;
                     case "✊":
-                        sendMessage(event, "You loose!");
+                        sendMessage(event, "You chose " + emote + ".I chose ✊,You loose!");
                         break;
                     case "✌":
-                        sendMessage(event, "You tied!");
+                        sendMessage(event, "You chose " + emote + ".I chose ✌,You tied!");
                         break;
                 }
 
-            } else if (event.getReactionEmote().getEmote().equals(event.getGuild().getEmoteById("✊"))) {
+            } else if (emote.equals("✌")) {
 
-                switch (emotes[0]) {
+                switch (getRandomAnswer()) {
                     case "\uD83D\uDD90":
-                        sendMessage(event,"You loose!");
+                        sendMessage(event,"You chose " + emote + ".I chose \uD83D\uDD90,You loose!");
                         break;
                     case "✊":
-                        sendMessage(event, "You tied!");
+                        sendMessage(event, "You chose " + emote + ".I chose ✊,You tied!");
                         break;
                     case "✌":
-                        sendMessage(event, "You win!");
+                        sendMessage(event, "You chose " + emote + ".I chose ✌,You win!");
                         break;
                 }
             }
+            gameOn = false;
         }
     }
 }

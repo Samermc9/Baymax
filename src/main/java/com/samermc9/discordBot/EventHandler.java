@@ -345,6 +345,8 @@ public class EventHandler extends ListenerAdapter {
             }
 
 
+        } else if (args[0].equalsIgnoreCase(PREFIX + "rps") || args[0].equalsIgnoreCase(PREFIX + "rockpaperscissors")) {
+            //ignore
         } else {
 
             if (msg.startsWith(PREFIX)) {
