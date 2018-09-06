@@ -74,7 +74,7 @@ public class RockPaperScissors extends ListenerAdapter {
                         break;
                 }
 
-            } else if (emote.equals("✊")) {
+            } else if (emote.equals("✌")) {
 
                 switch (getRandomAnswer()) {
                     case "\uD83D\uDD90":
@@ -88,7 +88,7 @@ public class RockPaperScissors extends ListenerAdapter {
                         break;
                 }
 
-            } else if (emote.equals("✌")) {
+            } else if (emote.equals("✊")) {
 
                 switch (getRandomAnswer()) {
                     case "\uD83D\uDD90":
