@@ -1,7 +1,5 @@
 package com.samermc9.discordBot.fun;
 
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-
 import java.util.*;
 
 public class EightBall {
@@ -31,7 +29,7 @@ public class EightBall {
         public static String getRandomOutput() {
             Collections.shuffle(outputs);
             int randomIndex = random.nextInt(outputs.size());
-            return outputs.get(0);
+            return outputs.get(randomIndex);
         }
     }
 
