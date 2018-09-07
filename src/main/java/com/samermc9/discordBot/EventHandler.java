@@ -4,6 +4,7 @@ import com.samermc9.discordBot.assets.CommandsList;
 import com.samermc9.discordBot.assets.GifURL;
 import com.samermc9.discordBot.assets.ImageURL;
 import com.samermc9.discordBot.fun.EightBall;
+import com.samermc9.discordBot.fun.Hangman;
 import com.samermc9.discordBot.fun.RockPaperScissors;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.OnlineStatus;
@@ -56,12 +57,12 @@ public class EventHandler extends ListenerAdapter {
         String[] args = event.getMessage().getContentRaw().split(" ");
 
         StringBuilder sb = new StringBuilder();
+
         for (String s : args) {
             sb.append(s);
         }
 
         String msg = sb.toString();
-
 
         if (event.getAuthor().isBot()) {
             return;
@@ -88,6 +89,16 @@ public class EventHandler extends ListenerAdapter {
             }
 
 
+        } else if (args[0].equalsIgnoreCase(PREFIX + "hangman")) {
+            String word = Hangman.getWord();
+            String hiddenWord = Hangman.changeToBlank(word);
+
+            event
+                    .getChannel()
+                    .sendMessage(hiddenWord)
+                    .queue();
+
+
         } else if (args[0].equalsIgnoreCase(PREFIX + "surrealmemes")) {
 
             if (args.length > 1) {
@@ -95,17 +106,13 @@ public class EventHandler extends ListenerAdapter {
                         .getChannel()
                         .sendMessage("**:x: Invalid usage: too many [args]**")
                         .queue();
-            }
-
-            else {
+            } else {
                 String surrealmeme = ImageURL.getRandomSurrealMemes();
                 event
                         .getChannel()
                         .sendMessage(surrealmeme)
                         .queue();
             }
-
-
 
 
             //HUG COMMAND (!hug user) - SENDS A HUG MESSAGE
@@ -134,8 +141,6 @@ public class EventHandler extends ListenerAdapter {
                         .sendMessage(hugGif)
                         .queue();
             }
-
-
 
 
             //SLAP COMMAND (!slap user) - SENDS A SLAP GIF AND A MESSAGE
@@ -207,9 +212,7 @@ public class EventHandler extends ListenerAdapter {
                         .sendMessage(killGif)
                         .queue();
             }
-        }
-
-        else if (args[0].equalsIgnoreCase(PREFIX + "match")) {
+        } else if (args[0].equalsIgnoreCase(PREFIX + "match")) {
             if (args.length < 3) {
                 event
                         .getChannel()
@@ -241,18 +244,14 @@ public class EventHandler extends ListenerAdapter {
                             .getChannel()
                             .sendMessage(inputUser + "** has a " + friendshipMeter + "% match with " + mentionedUser + " .Not the best pair are you?**")
                             .queue();
-                }
-
-                else {
+                } else {
                     event
                             .getChannel()
                             .sendMessage(inputUser + "** has a " + friendshipMeter + "% match with " + mentionedUser + ". It's a match made in heaven!**")
                             .queue();
                 }
             }
-        }
-
-        else if (args[0].equalsIgnoreCase(PREFIX + "info")) {
+        } else if (args[0].equalsIgnoreCase(PREFIX + "info")) {
             if (args.length > 2) {
                 event
                         .getChannel()
@@ -286,18 +285,13 @@ public class EventHandler extends ListenerAdapter {
                         .sendMessage("**There are** " + event.getGuild().getMembers().size() + " **members in this server!**")
                         .queue();
             }
-        }
-
-
-        else if (args[0].equalsIgnoreCase(PREFIX + "robloxmemes")) {
+        } else if (args[0].equalsIgnoreCase(PREFIX + "robloxmemes")) {
             if (args.length > 1) {
                 event
                         .getChannel()
                         .sendMessage("**:x: Invalid usage, too few [args]**")
                         .queue();
-            }
-
-            else {
+            } else {
                 String robloxmeme = ImageURL.getRobloxMemes();
                 event
                         .getChannel()
@@ -305,8 +299,6 @@ public class EventHandler extends ListenerAdapter {
                         .queue();
             }
         }
-
-
 
 
         //DELETE COMMAND (!delete [amount]) - DELETES MESSAGES BASED ON AMOUNT INPUT, REQUIRES ADMIN
@@ -361,14 +353,12 @@ public class EventHandler extends ListenerAdapter {
 
         } else if (args[0].equalsIgnoreCase(PREFIX + "8ball")) {
 
-            if (args.length < 2)  {
+            if (args.length < 2) {
                 event
                         .getChannel()
                         .sendMessage("**:x: Invalid usage, too few [args]**")
                         .queue();
-            }
-
-            else {
+            } else {
                 String eightBallOutput = EightBall.getRandomOutput();
                 event
                         .getChannel()
