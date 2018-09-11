@@ -4,8 +4,6 @@ import com.samermc9.discordBot.assets.CommandsList;
 import com.samermc9.discordBot.assets.GifURL;
 import com.samermc9.discordBot.assets.ImageURL;
 import com.samermc9.discordBot.fun.EightBall;
-import com.samermc9.discordBot.fun.Hangman;
-import com.samermc9.discordBot.fun.RockPaperScissors;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.entities.*;
@@ -19,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 public class EventHandler extends ListenerAdapter {
 
-    public static final String PREFIX = "&";
+    private static final String PREFIX = "&";
     private Random random = new Random();
 
     private boolean argsChecker(int length, int max, int min) {
@@ -86,18 +84,8 @@ public class EventHandler extends ListenerAdapter {
                                 "List of commands available : " + "```" + CommandsList.getCommands() + "```",
                                 new Color(230, 0, 50), "Use all commands with prefix &", null).build())
                         .queue();
+
             }
-
-
-        } else if (args[0].equalsIgnoreCase(PREFIX + "hangman")) {
-            String word = Hangman.getWord();
-            String hiddenWord = Hangman.changeToBlank(word);
-
-            event
-                    .getChannel()
-                    .sendMessage(hiddenWord)
-                    .queue();
-
 
         } else if (args[0].equalsIgnoreCase(PREFIX + "surrealmemes")) {
 
@@ -185,6 +173,8 @@ public class EventHandler extends ListenerAdapter {
                 }
             }
 
+        } else if (args[0].equalsIgnoreCase(PREFIX + "hangman")) {
+            //hangman called
 
             //KILL COMMAND (!kill user) - SENDS A RANDOM KILL GIF AND MESSAGE
         } else if (args[0].equalsIgnoreCase(PREFIX + "kill")) {
