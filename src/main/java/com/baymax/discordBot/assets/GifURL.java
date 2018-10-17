@@ -1,4 +1,4 @@
-package com.samermc9.discordBot.assets;
+package com.baymax.discordBot.assets;
 
 import java.util.ArrayList;
 import java.util.Arrays;

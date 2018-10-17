@@ -1,8 +1,8 @@
-package com.samermc9.discordBot.assets;
+package com.baymax.discordBot.commands;
 
 import java.util.Arrays;
 
-public class CommandsList {
+class CommandsList {
     private static String[] commands = new String[]{
             "help",
             "online",
@@ -20,11 +20,11 @@ public class CommandsList {
             "8ball"
     };
 
-    public static int getLength() {
+    static int getLength() {
         return commands.length;
     }
 
-    public static String getCommands() {
+    static String getCommands() {
         return Arrays.toString(commands);
     }
 }

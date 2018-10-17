@@ -1,4 +1,4 @@
-package com.samermc9.discordBot.assets;
+package com.baymax.discordBot.assets;
 
 
 import java.util.*;
@@ -17,15 +17,13 @@ public class ImageURL {
             "https://cdn130.picsart.com/266717044028201.jpg?r1024x1024",
             "https://pbs.twimg.com/media/DXgMXPuVQAA-Qv4.jpg:large",
             "https://pics.me.me/is-this-a-surreal-meme-%3Cp%3E-%3Ca-href-https-www-reddit-com-r-surrealmemes-comments-8je8eu-the-inspectors-are-pondering-our-values-%3Esrc%3C-a%3E-%3C-p%3E-33027917.png",
-            "",
             "https://i.redd.it/1xofgfuon3jz.jpg",
             "https://i.pinimg.com/236x/4e/5e/bd/4e5ebdea14e8f5ac582d3acc395aba34.jpg",
             "https://i.pinimg.com/736x/8f/c8/01/8fc8010241f537a242ddb91d35dee1ad.jpg",
             "https://78.media.tumblr.com/c276d90fd0627ba86584c42792404073/tumblr_ov1nreuLA61wvuif9o1_1280.png",
             "https://i.kym-cdn.com/photos/images/newsfeed/001/247/636/52c.png",
             "https://i.pinimg.com/originals/a1/24/dd/a124dde95693a9d7b7ae6ccae10c18c4.png",
-            "https://i.pinimg.com/236x/9c/46/57/9c46570c9df57fef15184a81cd4dfcf0.jpg",
-            ""
+            "https://i.pinimg.com/236x/9c/46/57/9c46570c9df57fef15184a81cd4dfcf0.jpg"
             ));
 
 

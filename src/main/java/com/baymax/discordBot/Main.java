@@ -1,7 +1,6 @@
-package com.samermc9.discordBot;
+package com.baymax.discordBot;
 
-import com.samermc9.discordBot.fun.Hangman;
-import com.samermc9.discordBot.fun.RockPaperScissors;
+import com.baymax.discordBot.fun.RockPaperScissors;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
@@ -15,6 +14,5 @@ public class Main {
                 .buildBlocking();
         jda.addEventListener(new EventHandler());
         jda.addEventListener(new RockPaperScissors());
-        jda.addEventListener(new Hangman());
     }
 }

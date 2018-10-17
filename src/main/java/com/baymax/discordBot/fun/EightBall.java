@@ -1,4 +1,4 @@
-package com.samermc9.discordBot.fun;
+package com.baymax.discordBot.fun;
 
 import java.util.*;
 
@@ -20,7 +20,7 @@ public class EightBall {
                 "**Concentrate and ask again**",
                 "**My reply is a no**",
                 "**Very doubtful**",
-                "Unlikely"
+                "**Unlikely**"
         ));
 
         private static Random random = new Random();
